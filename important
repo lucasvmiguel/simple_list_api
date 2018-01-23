@@ -10,3 +10,13 @@ rails g controller items
 configurated routes
 created test to Item controller
 make actions
+rails g model List name:string
+rails db:migrate
+rails t
+created test to List - presence of name
+run tests
+make tests pass
+rails g controller lists
+configurated routes
+created test to List controller
+make actions

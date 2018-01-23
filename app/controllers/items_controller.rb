@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
     if item.save
       render json: item, status: :created
     else
-      puts item.errors.inspect
       render json: item, status: :unprocessable_entity
     end
   end
