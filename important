@@ -20,3 +20,13 @@ rails g controller lists
 configurated routes
 created test to List controller
 make actions
+added references migration
+rails g migration add_list_to_items list:references
+added references in both models
+rails db:migrate
+fix fixtures
+added new test (without list)
+rails test test/models/*
+changed controller tests
+changed controller
+run tests

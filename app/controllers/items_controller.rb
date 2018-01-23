@@ -1,13 +1,15 @@
 class ItemsController < ApplicationController
+  before_action :set_list
   before_action :set_item, only: [:update, :destroy]
 
   def index
-    items = Item.all
+    items = @list.items
     render json: items, status: :ok
   end
 
   def create
     item = Item.new(item_params)
+    item.list = @list
     if item.save
       render json: item, status: :created
     else
@@ -35,6 +37,10 @@ class ItemsController < ApplicationController
     end
 
     def set_item
-      @item = Item.find(params[:id])
+      @item = @list.items.find(params[:id])
+    end
+
+    def set_list
+      @list = List.find(params[:list_id])
     end
 end

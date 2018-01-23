@@ -15,4 +15,9 @@ class ItemTest < ActiveSupport::TestCase
     item = items(:three)
     refute item.valid?
   end
+
+  test "item four" do
+    item = items(:four)
+    refute item.valid?
+  end
 end

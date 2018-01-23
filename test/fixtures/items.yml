@@ -3,11 +3,18 @@
 one:
   title: MyString
   checked: false
+  list: one
 
 two:
   title: MyString
   checked: true
+  list: one
 
 three:
   title: null
+  checked: false
+  list: one
+
+four:
+  title: MyString
   checked: false
