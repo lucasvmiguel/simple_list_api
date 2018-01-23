@@ -1,0 +1,12 @@
+rails new simple_list_api --api
+cd simple_list_api
+rails g model Item title:string checked:boolean
+rails db:migrate
+rails test
+created test to Item - presence of title
+run tests
+make tests pass
+rails g controller items
+configurated routes
+created test to Item controller
+make actions
