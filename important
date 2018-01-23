@@ -1,5 +1,8 @@
+#create api
 rails new simple_list_api --api
 cd simple_list_api
+
+#create item
 rails g model Item title:string checked:boolean
 rails db:migrate
 rails test
@@ -10,6 +13,8 @@ rails g controller items
 configurated routes
 created test to Item controller
 make actions
+
+#create list
 rails g model List name:string
 rails db:migrate
 rails t
@@ -20,6 +25,8 @@ rails g controller lists
 configurated routes
 created test to List controller
 make actions
+
+#create reference between list and item
 added references migration
 rails g migration add_list_to_items list:references
 added references in both models
@@ -30,3 +37,13 @@ rails test test/models/*
 changed controller tests
 changed controller
 run tests
+
+#auth
+added gem devise, omniauth, devise_auth_token
+rails g devise_token_auth:install User auth
+removed all confirmable parts
+rails db:migrate
+never expire token in configuration device_token_auth
+create fixture of users
+create in test helper fn to sign in 
+authenticate controllers

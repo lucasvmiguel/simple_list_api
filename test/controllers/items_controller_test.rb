@@ -7,26 +7,34 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get list_items_url(@list)
+    signed_in_headers = api_sign_in
+
+    get list_items_url(@list), headers: signed_in_headers
     assert_response :success
   end
 
   test "should create item" do
+    signed_in_headers = api_sign_in
+
     assert_difference('Item.count') do
-      post list_items_url(@list), params: { item: { title: @item.title, checked: @item.checked } }
+      post list_items_url(@list), params: { item: { title: @item.title, checked: @item.checked } }, headers: signed_in_headers
     end
 
     assert_response :created
   end
 
   test "should update item" do
-    patch list_item_url(@list, @item), params: { item: { title: @item.title, checked: @item.checked } }
+    signed_in_headers = api_sign_in
+
+    patch list_item_url(@list, @item), params: { item: { title: @item.title, checked: @item.checked } }, headers: signed_in_headers
     assert_response :success
   end
 
   test "should destroy item" do
+    signed_in_headers = api_sign_in
+
     assert_difference('Item.count', -1) do
-      delete list_item_url(@list, @item)
+      delete list_item_url(@list, @item), headers: signed_in_headers
     end
 
     assert_response :no_content
