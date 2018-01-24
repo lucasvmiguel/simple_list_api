@@ -47,3 +47,14 @@ never expire token in configuration device_token_auth
 create fixture of users
 create in test helper fn to sign in 
 authenticate controllers
+
+#create reference between user and list
+added references migration
+rails g migration add_user_to_lists user:references
+added references in both models
+fix fixtures
+added new test (without user)
+rails test test/models/*
+changed controller
+run tests
+

@@ -3,12 +3,13 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:destroy]
 
   def index
-    lists = List.all
+    lists = current_user.lists
     render json: lists, status: :ok
   end
 
   def create
     list = List.new(list_params)
+    list.user = current_user
     if list.save
       render json: list, status: :created
     else
@@ -28,6 +29,6 @@ class ListsController < ApplicationController
     end
 
     def set_list
-      @list = List.find(params[:id])
+      @list = current_user.lists.find(params[:id])
     end
 end

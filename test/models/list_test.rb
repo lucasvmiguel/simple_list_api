@@ -15,4 +15,9 @@ class ListTest < ActiveSupport::TestCase
     list = lists(:three)
     refute list.valid?
   end
+
+  test "list four" do
+    list = lists(:four)
+    refute list.valid?
+  end
 end

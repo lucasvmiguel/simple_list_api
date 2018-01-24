@@ -7,7 +7,7 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     signed_in_headers = api_sign_in
-    
+
     get lists_url, headers: signed_in_headers
 
     assert_response :success

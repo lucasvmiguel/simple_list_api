@@ -2,9 +2,15 @@
 
 one:
   name: MyString
+  user: one
 
 two:
   name: MyString
+  user: one
 
 three:
   name: null
+  user: one
+
+four:
+  name: MyString
