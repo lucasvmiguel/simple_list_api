@@ -29,5 +29,6 @@ class ListsController < ApplicationController
 
     def set_list
       @list = current_user.lists.find(params[:id])
+      render status: :not_found if @list.nil?
     end
 end

@@ -35,9 +35,11 @@ class ItemsController < ApplicationController
 
     def set_item
       @item = @list.items.find(params[:id])
+      render status: :not_found if @item.nil?
     end
 
     def set_list
       @list = List.find(params[:list_id])
+      render status: :not_found if @list.nil?
     end
 end
