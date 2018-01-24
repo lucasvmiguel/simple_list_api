@@ -61,3 +61,6 @@ run tests
 #improving api
 better response format controllers
 404 when not found entity
+
+#postgres database
+gemfile added postgres
