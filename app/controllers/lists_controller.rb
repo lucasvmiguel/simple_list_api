@@ -4,17 +4,16 @@ class ListsController < ApplicationController
 
   def index
     lists = current_user.lists
-    render json: lists, status: :ok
+
+    render json: { status: 'success', data: lists }, status: :ok
   end
 
   def create
     list = List.new(list_params)
     list.user = current_user
-    if list.save
-      render json: list, status: :created
-    else
-      render json: list, status: :unprocessable_entity
-    end
+    success = list.save
+
+    render_or_unprocessable_entity(success, list, :created)
   end
 
   def destroy

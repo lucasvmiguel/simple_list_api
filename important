@@ -58,3 +58,5 @@ rails test test/models/*
 changed controller
 run tests
 
+#improving api
+better response format controllers

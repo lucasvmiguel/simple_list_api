@@ -5,25 +5,21 @@ class ItemsController < ApplicationController
 
   def index
     items = @list.items
-    render json: items, status: :ok
+    render json: { status: 'success', data: items }, status: :ok
   end
 
   def create
     item = Item.new(item_params)
     item.list = @list
-    if item.save
-      render json: item, status: :created
-    else
-      render json: item, status: :unprocessable_entity
-    end
+    success = item.save
+
+    render_or_unprocessable_entity(success, item, :created)
   end
 
   def update
-    if @item.update(item_params)
-      render json: @item, status: :ok
-    else
-      render json: @item, status: :unprocessable_entity
-    end
+    success = @item.update(item_params)
+
+    render_or_unprocessable_entity(success, @item, :ok)
   end
 
   def destroy
