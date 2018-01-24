@@ -31,8 +31,6 @@ gem 'devise'
 
 gem 'omniauth'
 
-gem 'omniauth-facebook'
-
 gem 'devise_token_auth'
 
 group :development, :test do
